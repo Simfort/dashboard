@@ -2,7 +2,6 @@ import Link from "next/link";
 import github from '@/images/github.svg'
 import Image from "next/image";
 import {rubik} from './ui/fonts'
-import bitcoin from '@/images/bitcoin.png'
 import crypts from '@/images/crypts.png'
 
 export default function Description(){
