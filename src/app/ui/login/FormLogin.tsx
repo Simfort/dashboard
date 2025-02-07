@@ -18,7 +18,8 @@ export default function FormLogin() {
       return true;
     } else {
       e.preventDefault();
-      err.current.style.opacity = "1";
+      err.current.style.color = "red";
+      err.current.textContent = "Name or password not valid!";
       return false;
     }
   };
@@ -43,7 +44,9 @@ export default function FormLogin() {
                       ]
                     }
                     onChange={(e) => {
-                      err.current.style.opacity = "0";
+                      err.current.textContent =
+                        " Log in on this site your access config with your data.";
+                      err.current.style.color = "";
                       setValue(
                         val.type == "password"
                           ? { ...value, password: e.target.value }
@@ -60,8 +63,8 @@ export default function FormLogin() {
 
           <tr>
             <th colSpan={2}>
-              <p className="text-center opacity-0 text-red-600 mb-5" ref={err}>
-                Password or name is not valid
+              <p className="text-center  mb-5" ref={err}>
+                Log in on this site your access config with your data.
               </p>
               <button
                 className="p-3 border-2 w-80 rounded-xl transition-colors duration-150 hover:text-blue-500 hover:border-blue-500 hover:border-solid active:border-blue-300 active:text-blue-300"
