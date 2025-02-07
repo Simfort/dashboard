@@ -8,7 +8,9 @@ export default function FormLogin() {
     password: "",
     name: "",
   });
-  const err = useRef<HTMLParagraphElement>();
+  const err = useRef<HTMLParagraphElement>(
+    "" as unknown as HTMLParagraphElement
+  );
   const handlerSubmit = (e: FormEvent) => {
     const valid = validator(value);
     if (valid) {
@@ -34,8 +36,10 @@ export default function FormLogin() {
                 <th className="pl-5">
                   <input
                     value={
-                      (value as any)[
-                        val.type == "password" ? value.password : value.name
+                      value[
+                        val.type == "password"
+                          ? (value.password as keyof typeof value)
+                          : (value.name as keyof typeof value)
                       ]
                     }
                     onChange={(e) => {
