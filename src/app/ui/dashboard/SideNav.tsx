@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { dashboardsLinks } from "@/app/lib/dashboard/links";
 
@@ -20,6 +21,9 @@ export default function SideNav() {
         })}
       </nav>
       <Link
+        onClick={() => {
+          localStorage.removeItem("user");
+        }}
         className="p-3 rounded-br-[50px]  border-2 justify-self-center transition-colors duration-150 hover:text-red-500 hover:border-red-500 hover:border-solid "
         href="/">
         Sign Out
